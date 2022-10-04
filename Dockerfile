@@ -1,7 +1,7 @@
-FROM benkarr/fasta-p-i:1.0
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
 
-WORKDIR /code
+COPY ./requirements.txt /app/requirements.txt
 
-COPY ./app /code/app
+RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "${PORT}"]
+COPY ./app /app/app
