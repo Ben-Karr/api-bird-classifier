@@ -1,8 +1,6 @@
-#from typing import Union
-from fastapi import FastAPI, UploadFile, File, Form
+from fastapi import FastAPI, File
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
-from fastapi.encoders import jsonable_encoder
+import io
 
 from fastai.vision.all import *
 
@@ -27,15 +25,13 @@ file_path = path/"bird_classifier_resnet18_963.pkl"
 learn = load_learner(file_path)
 classes = learn.dls.vocab
 
-def predict(img):
+def predict(file):
+    img = np.array(Image.open(io.BytesIO(file)))
     label, _, probs = learn.predict(img)
     return {'label': label, 'confidences': zip(classes, list(map(float, probs)))}
 
-@app.get("/")
-def read_root():
-    #label, probs = predict('./app/example.jpeg') ## docker / heroku
-    #label, probs = predict('./example.jpeg') ## local
-
-    results = predict('./examle.jpeg')
+@app.post("/")
+def read_root(file: bytes = File(...)):
+    results = predict(file)
     ## return {"label": label, "confidences": probs}
-    return JSONResponse(content=jsonable_encoder(result))
+    return results
