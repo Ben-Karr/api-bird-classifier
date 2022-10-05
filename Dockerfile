@@ -1,4 +1,4 @@
-FROM benkarr/fasta-p-i:1.0
+FROM benkarr/fasta-p-i:1.1
 
 WORKDIR /code
 
