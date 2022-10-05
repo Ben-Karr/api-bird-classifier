@@ -7,7 +7,8 @@ from fastai.vision.all import *
 app = FastAPI()
 
 origins = [
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "https://ben-karr.github.io/react-bird-classifier/"
 ]
 
 app.add_middleware(
@@ -18,8 +19,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-## path = Path('./app/models') ## docker / heroku
-path = Path('./models') ## local
+path = Path('./app/models') ## docker / heroku
+##path = Path('./models') ## local
 file_path = path/"bird_classifier_resnet18_963.pkl"
 
 learn = load_learner(file_path)
