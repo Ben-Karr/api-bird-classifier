@@ -8,7 +8,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",
-    "https://ben-karr.github.io/react-bird-classifier/"
+    "https://ben-karr.github.io"
 ]
 
 app.add_middleware(
