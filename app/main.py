@@ -32,6 +32,4 @@ def predict(file):
 
 @app.post("/")
 def read_root(file: bytes = File(...)):
-    results = predict(file)
-    ## return {"label": label, "confidences": probs}
-    return results
+    return predict(file)
