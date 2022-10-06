@@ -22,3 +22,10 @@ fastapi
 uvicorn
 python-multipart
 ```
+
+### Resources:
+* Combine FastAPI with React: https://www.youtube.com/watch?v=0JaCS6xcIBM
+* FastAPI tutorial: https://fastapi.tiangolo.com/tutorial/first-steps/
+* FastAPI for Docker: https://fastapi.tiangolo.com/deployment/docker/
+* Torch CPU install: https://stackoverflow.com/questions/59122308/heroku-slug-size-too-large-after-installing-pytorch
+* Connect Heroku to GitHub: https://devcenter.heroku.com/articles/github-integration
