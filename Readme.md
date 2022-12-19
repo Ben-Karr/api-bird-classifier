@@ -1,3 +1,5 @@
+# The API is currently not working since Heroku discontinued the ability to host Docker containers for free.
+
 # An API that uses Fastai and FastAPI to predict bird species
 
 The app loads a fastai classification model trained [here](https://github.com/Ben-Karr/train-bird-classifier). You can post an image file to `"/"` to receive the predicted bird-label together with the overall per-label confidences.
